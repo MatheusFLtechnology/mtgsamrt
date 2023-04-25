@@ -1,0 +1,7 @@
+{
+  "name": "MTGSmart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
