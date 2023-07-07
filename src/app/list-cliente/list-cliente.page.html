@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click) = "cliente()">
+      <ion-button><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>listar de clientes cadastrados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-row>
+  <ion-buttons (click)="carregar()">
+    <ion-input [(ngModel)]="pesquisa"></ion-input>
+    <ion-icon name="search-outline"></ion-icon>
+  </ion-buttons>
+</ion-row>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor="let item of itens" >
+    <ion-item>
+      <ion-label>{{item.CPF}} = {{item.Nome}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

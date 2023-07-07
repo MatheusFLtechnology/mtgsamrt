@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start" (click) = "backtoMain()" >
+      <ion-button><ion-icon name="caret-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>viveiros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<div style="display: grid; grid-template-columns: 50% 50%;">
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/img/viveiros.jpg" />
+    <ion-card-header>
+      <ion-card-title (click)="viveiro()">MEUS VIVEIROS</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/img/carcinicultua.jpg" />
+    <ion-card-header>
+      <ion-card-title (click)="addviveiro()">Novos Viveiros</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/img/cliente.jpeg" />
+    <ion-card-header>
+      <ion-card-title (click)="add_cliente()">adicionar cliente</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/img/cliente.jpeg" />
+    <ion-card-header>
+      <ion-card-title (click)="list_cliente()">clientes cadastrados</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</div>
+
+</ion-content>

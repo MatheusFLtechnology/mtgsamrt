@@ -1,5 +1,6 @@
 ion-menu-button {
   color: var(--ion-color-primary);
+  color: #fff;
 }
 
 #container {
@@ -25,4 +26,17 @@ ion-menu-button {
 
 #container a {
   text-decoration: none;
+}
+ion-title
+{
+  text-align: center;
+  --color:white;
+}
+
+ion-header{
+  color: green;
+}
+ion-toolbar{
+  --background:#00FF7F;
+
 }

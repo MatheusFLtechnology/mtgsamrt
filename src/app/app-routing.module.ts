@@ -10,6 +10,26 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'cliente',
+    loadChildren: () => import('./cliente/cliente.module').then( m => m.ClientePageModule)
+  },
+  {
+    path: 'viveiro',
+    loadChildren: () => import('./viveiro/viveiro.module').then( m => m.ViveiroPageModule)
+  },
+  {
+    path: 'addviveiro',
+    loadChildren: () => import('./addviveiro/addviveiro.module').then( m => m.AddviveiroPageModule)
+  },
+  {
+    path: 'add-cliente',
+    loadChildren: () => import('./add-cliente/add-cliente.module').then( m => m.AddClientePageModule)
+  },
+  {
+    path: 'list-cliente',
+    loadChildren: () => import('./list-cliente/list-cliente.module').then( m => m.ListClientePageModule)
   }
 ];
 
