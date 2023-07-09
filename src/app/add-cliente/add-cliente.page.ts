@@ -64,7 +64,16 @@ salva(){
     
   );
 }
-  mensagemSucesso(arg0: any) {
+  
+  async mensagemSucesso(msg:string){
+    const arlet=await this.alertController.create({
+      header:'alerta',
+      message:msg,
+      buttons:['ok'],
+    })
+  }
+
+  mensagemErro(arg0: any) {
     throw new Error('Method not implemented.');
   }
 cliente(){

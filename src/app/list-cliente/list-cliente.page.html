@@ -8,16 +8,34 @@
 </ion-header>
 
 <ion-row>
-  <ion-buttons (click)="carregar()">
-    <ion-input [(ngModel)]="pesquisa"></ion-input>
-    <ion-icon name="search-outline"></ion-icon>
-  </ion-buttons>
+  <ion-list class="listagem-cl">
+    <ion-item>
+      <ion-buttons (click)="carregar()">
+        <ion-input placeholder="busca por Nome ou CPF" [(ngModel)]="pesquisa" type="search"></ion-input>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <ion-label>Paginação</ion-label>
+      <ion-button (click)="paginaAnterior()">Pra Cima</ion-button>
+      <ion-button (click)="paginaPosterior()">Pra baixo</ion-button>
+    </ion-item>
+  </ion-list>
+  
 </ion-row>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-list *ngFor="let item of itens" >
-    <ion-item>
-      <ion-label>{{item.CPF}} = {{item.Nome}}</ion-label>
+    <ion-item class="lista">
+      <ion-label>CPF:{{item.CPF}} <br> NOME:{{item.Nome}}</ion-label>
+      <ion-button (click)="editarCliente(item.IdCliente)">
+        <ion-icon name="create-outline"></ion-icon>
+        
+      </ion-button>
+      <ion-button (click)="excluirCliente(item.IdCliente)">
+        <ion-icon name="trash-outline"></ion-icon>
+        
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

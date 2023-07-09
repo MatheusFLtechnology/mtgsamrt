@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>edit-cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Id.Cliente</ion-label>
+    <ion-input placeholder="" [(ngModel)]="IdCliente"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>CPF:</ion-label>
+    <ion-input placeholder="informe o cpf" type="text" [(ngModel)]="CPF"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nome:</ion-label>
+    <ion-input placeholder="informe o nome" type="text" [(ngModel)]="Nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Telefone:</ion-label>
+    <ion-input placeholder="informe o telefone" type="number" [(ngModel)]="Telefone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email:</ion-label>
+    <ion-input placeholder="nome@gmail.com" [(ngModel)]="Email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <div class="botao">
+      <ion-button size="large" shape="round" (click)="salva()">Salvar</ion-button>
+    </div>
+  </ion-item>
+</ion-content>
