@@ -18,7 +18,8 @@ export class EditClientePage implements OnInit {
 
   //itens: any=[];
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private provider: api,
     private alertController: AlertController,
     private activatedRoute:ActivatedRoute ) { }
@@ -83,7 +84,8 @@ export class EditClientePage implements OnInit {
         header:'alerta',
         message:msg,
         buttons:['ok'],
-      })
+      });
+        
     }
   
     mensagemErro(arg0: any) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { api } from '../../services/api';
 import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-list-cliente',
   templateUrl: './list-cliente.page.html',
@@ -15,6 +16,7 @@ export class ListClientePage implements OnInit {
   
   constructor(private router: Router,
     private provider:api,
+    private alertController: AlertController,
     private toastController: ToastController) { }
 
   ngOnInit() {
@@ -75,7 +77,31 @@ editarCliente(IdCliente:string){
   this.router.navigate(['/edit-cliente/'+IdCliente])
 }
 excluirCliente(IdCliente:string){
-
+ 
+    return new Promise(resolve=>{
+      let dados={
+        IdCliente:IdCliente, 
+        //star:this.start,
+        //limit:this.limit,
+      }
+      this.provider.dadosApi(dados, 'excluir.php').subscribe((data:any)=>{
+       if(data['erro']=='1'){
+         this.mensagemErro(data['mensagem']);
+       }else if(data['erro']==0){
+        this.mensagemSucesso(data['mensagem']);
+        this.carregar();
+       }
+    }
+     );
+  });
+}
+async mensagemSucesso(msg:string){
+  const arlet=await this.alertController.create({
+    header:'alerta',
+    message:msg,
+    buttons:['ok'],
+  });
+    
 }
 
 }

@@ -8,7 +8,7 @@ $postjson= json_decode(file_get_contents('php://input'),true);
 $IdCliente= ""; //$postjson['IdCliente'];
 $CPF= "";  //$postjson['CPF'];
 $Nome= ""; //$postjson['Nome'];
-$Telefone= ""; //$postjson['Telefone'];
+$Telef= ""; //$postjson['Telefone'];
 $Email= "";//$postjson['Email'];
 
 # algoritimo de validação dos dados
@@ -30,9 +30,9 @@ if(isset($postjson['Nome'])&& $postjson['Nome'] != ""){
     echo json_encode(array('mensagem'=>'preencha o campo Nome!'));
     exit();
 }
-if(isset($postjson['Telefone'])&& $postjson['Telefone'] != ""){
+if(isset($postjson['Telef'])&& $postjson['Telef'] != ""){
     /*if(is_numeric($postjson['Telefone'])){*/
-        $CPF=$postjson['Telefone'];
+        $Telef=$postjson['Telef'];
     /*}else{
         echo json_encode(array('mensagem'=>'Dgite um Telefone Valido!'));
         exit();
@@ -42,7 +42,7 @@ if(isset($postjson['Telefone'])&& $postjson['Telefone'] != ""){
     exit();
 }
 if(isset($postjson['Email'])&& $postjson['Email'] != ""){
-    $Nome=$postjson['Email'];
+    $Email=$postjson['Email'];
 }else{
     echo json_encode(array('mensagem'=>'preencha o campo Email!'));
     exit();
@@ -51,10 +51,11 @@ if(isset($postjson['Email'])&& $postjson['Email'] != ""){
 
 #Preencha o SQL com as informação do banco
 
-$res= $pdo->prepare("UPDATE INTO cliente SET Nome =:Nome,
+$res= $pdo->prepare("UPDATE  cliente SET Nome =:Nome,
        CPF=:CPF,
-       Telefone= :Telefone,
-       Email= :Email    
+       Telef= :Telef,
+       Email= :Email 
+       WHERE IdCliente=:IdCliente
 ");
 
 #bind do sql com os dados que serão iseridos no banco
@@ -62,8 +63,10 @@ $res= $pdo->prepare("UPDATE INTO cliente SET Nome =:Nome,
 //$res->bindValue(":IdCliente",$IdCliente);
 $res->bindValue(":Nome",$Nome);
 $res->bindValue(":CPF",$CPF);
-$res->bindValue(":Telefone",$Telefone);
+$res->bindValue(":Telef",$Telef);
 $res->bindValue(":Email",$Email);
+$res->bindValue(":IdCliente",$IdCliente);
+
 
 $res->execute();
 

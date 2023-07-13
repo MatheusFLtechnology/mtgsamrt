@@ -8,7 +8,7 @@ $postjason=json_decode(file_get_contents('php://input'),true);
 
 $IdCliente=$postjason['IdCliente'];
 
-$busca= '%' .  $postjason['pesquisa'] .  '%';
+
 $query= $pdo->query("SELECT * from cliente WHERE IdCliente = '$IdCliente'");
          
           

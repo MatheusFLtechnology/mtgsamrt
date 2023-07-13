@@ -13,17 +13,14 @@ $Email= "";//$postjson['Email'];
 
 # algoritimo de validação dos dados
 if(isset($postjson['CPF'])&& $postjson['CPF'] != ""){
-    if(is_numeric($postjson['CPF'])){
+    
         $CPF=$postjson['CPF'];
     }else{
         echo json_encode(array('mensagem'=>'Dgite um CPF Valido!'));
         exit();
     }
-    
-}else{
-    echo json_encode(array('mensagem'=>'preencha o campo Nome!'));
-    exit();
-}
+
+
 if(isset($postjson['Nome'])&& $postjson['Nome'] != ""){
     $Nome=$postjson['Nome'];
 }else{
@@ -31,12 +28,9 @@ if(isset($postjson['Nome'])&& $postjson['Nome'] != ""){
     exit();
 }
 if(isset($postjson['Telefone'])&& $postjson['Telefone'] != ""){
-    if(is_numeric($postjson['Telefone'])){
-        $CPF=$postjson['Telefone'];
-    }else{
-        echo json_encode(array('mensagem'=>'Dgite um Telefone Valido!'));
-        exit();
-    }   
+    
+    $Telefone=$postjson['Telefone'];
+    
 }else{
     echo json_encode(array('mensagem'=>'preencha o campo Telefone!'));
     exit();
