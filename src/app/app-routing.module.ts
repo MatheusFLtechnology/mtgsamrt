@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'edit-cliente/:IdCliente',
     loadChildren: () => import('./edit-cliente/edit-cliente.module').then( m => m.EditClientePageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
+
 ];
 
 @NgModule({

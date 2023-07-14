@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Monitoramento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stackted">Servidor:</ion-label>
+        <ion-input type="text" [(ngModel)]="server"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stackted">Porta:</ion-label>
+        <ion-input type="text" [(ngModel)]="port"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button size="large" shape="round" (click)="pegarDadosSensores()">Pegar Dados Sensores</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stackted">Topic:</ion-label>
+        <ion-input type="text" [(ngModel)]="topic"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button size="large" shape="round" (click)="pegarDadosSensor()">Pegar Dados do Sensor</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stackted">Resultado:</ion-label>
+        <ion-input type="text" [(ngModel)]="result"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <div>========================</div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stackted">Dados a Enviar:</ion-label>
+        <ion-input type="text" [(ngModel)]="dado"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button size="large" shape="round" (click)="enviarDado()">Enviar Dados para o Sensor</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

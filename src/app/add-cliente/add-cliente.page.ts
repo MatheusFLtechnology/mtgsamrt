@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { api } from '../../services/api';
-import { resolve } from 'dns';
+
 import { AlertController, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-add-cliente',
@@ -47,7 +47,7 @@ salva(){
       Telefone:this.Telefone,
       Email:this.Email,
 
-    } 
+    }
     this.provider.dadosApi(dados, 'inserir.php').subscribe(
       (data: any)=> {
         //cosole.log("Usuario Cadastrado com sucesso ")
@@ -57,14 +57,14 @@ salva(){
         }else if(data['erro']==1){
           console.log(data['mensagem']);
         }
-        
+
       }
-    ) 
+    )
   }
-    
+
   );
 }
-  
+
   async mensagemSucesso(msg:string){
     const arlet=await this.alertController.create({
       header:'alerta',
@@ -78,7 +78,7 @@ salva(){
   }
 cliente(){
   this.router.navigate(['/cliente'])
-}  
+}
 
 limparcampos(){
   this.IdCliente="";

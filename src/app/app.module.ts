@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { ApiMqtt } from '../services/api.mqtt';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [ HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [api,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [ HttpClientModule,HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [api,ApiMqtt,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
