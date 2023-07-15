@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { ApiMqtt } from '../../services/api.mqtt';
+//import {Router}
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,8 @@ export class HomePage {
   topic: string = "";
   dado:string = "";
 
-  constructor(private apimqtt: ApiMqtt) {}
+  constructor(private apimqtt: ApiMqtt,
+    private router: Router) {}
 
 
   pegarDadosSensores(){
@@ -43,6 +47,9 @@ export class HomePage {
     this.apimqtt.publiDados(this.server, this.port, pub).subscribe((data: any) => {
       this.sensor = data.value;
     })
+  }
+  backtoMain(){
+    this.router.navigate([''])
   }
 
 }

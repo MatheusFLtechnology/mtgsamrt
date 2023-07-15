@@ -4,8 +4,8 @@ class MqttClient {
 
   constructor() {
     //mqtt://test.mosquitto.org
-    this.client = mqtt.connect('mqtt://10.44.1.35');
-    //this.client = mqtt.connect('mqtt://test.mosquitto.org');
+    //this.client = mqtt.connect('mqtt://10.44.1.35');
+    this.client = mqtt.connect('mqtt://test.mosquitto.org');
     this.sensor1 = 0;
     this.sensor2 = 0;
     this.sensor3 = 0;
@@ -58,7 +58,7 @@ class MqttClient {
         }
         case 'MTG/temp': {
           this.sensor3 = Number(message);
-          console.log(`temperatura = ${this.sensor2}`);
+          console.log(`temperatura = ${this.sensor3}`);
           break;
         }
       }
